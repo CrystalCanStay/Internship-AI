@@ -12,3 +12,5 @@ for i in range(Reader.inputData.__len__()):
 output += bias
 print(Reader.inputData.__len__())
 print(output)
+
+#test
