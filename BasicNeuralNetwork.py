@@ -250,4 +250,4 @@ for epoch in range(10000):
     optimizer.update_params(outputLayer)
     optimizer.post_update_params()
 
-# This produces 93% accuracy
+# Obtained more accurate information
