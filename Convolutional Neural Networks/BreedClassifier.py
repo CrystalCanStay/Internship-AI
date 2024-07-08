@@ -184,6 +184,12 @@ if not (modelInitialization):
 else:
 
     # I'm so lost
+    A = ['abyssinian', 'american_bulldog', 'american_pit_bull_terrier', 'basset_hound', 'beagle', 'bengal', 'birman',
+         'bombay', 'boxer', 'british_shorthair', 'chihuahua', 'egyptian_mau', 'english_cocker_spaniel',
+         'english_setter', 'german_shorthaired', 'great_pyrenees', 'havanese', 'japanese_chin', 'keeshond',
+         'leonberger', 'maine_coon', 'miniature_pinscher', 'newfoundland', 'persian', 'pomeranian', 'pug',
+         'ragdoll', 'russian_blue', 'saint_bernard', 'samoyed', 'scottish_terrier', 'shiba_inu', 'siamese',
+         'sphynx', 'staffordshire_bull_terrier', 'wheaten terrier', 'yorkshire_terrier']
     k.models.load_model(checkpoint_filepath)
     #temp_path = '/home/crystal/Downloads/Cats-and-Dogs-Breed-Dataset-main/TRAIN/american_bulldog'
     predictions = model.predict(test_data, steps=1, verbose=0)
@@ -198,7 +204,7 @@ else:
             img = np.invert(np.array([img]))
             prediction = model.predict(img)
             #print(prediction)
-            print(f"This image is probably a {np.argmax(prediction)}")
+            print(f"This image is probably a {A[np.argmax(prediction)]}")
             plt.imshow(unfiltered_image, cmap=plt.cm.binary)
             plt.show()
         finally:

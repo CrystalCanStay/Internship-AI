@@ -69,6 +69,7 @@ if not (Model_initialization):
     model.fit(training_data, validation_data=validation_data, validation_steps=1,
           steps_per_epoch=2, epochs=50, verbose=2, callbacks=[model_checkpoint_callback])
 else:
+    A = ['dog', 'cat']
     k.models.load_model(checkpoint_filepath)
     predictions = model.predict(test_data, steps=1, verbose=0)
     i = 1
@@ -84,7 +85,7 @@ else:
                 result = 'cat'
             elif (np.argmax(prediction) == 0):
                 result = 'dog'
-            print(f"This image is probably a {result}")
+            print(f"This image is probably a {A[np.argmax(prediction)]}")
             plt.imshow(unfiltered_image, cmap=plt.cm.binary)
             plt.show()
 
@@ -93,11 +94,11 @@ else:
             unfiltered_image2 = cv2.imread(f"/home/crystal/Downloads/real_test/dog/dog-{i}.jpeg")
             img2 = np.invert(np.array([img2]))
             prediction2 = model.predict(img2)
-            if np.argmax(prediction2) == 0:
-                result2 = 'cat'
-            elif np.argmax(prediction2) == 1:
-                result2 = 'dog'
-            print(f"This image is probably a {result2}")
+            #if np.argmax(prediction2) == 0:
+            #    result2 = 'cat'
+            #elif np.argmax(prediction2) == 1:
+            #    result2 = 'dog'
+            print(f"This image is probably a {A[np.argmax(prediction2)]}")
             plt.imshow(unfiltered_image2, cmap=plt.cm.binary)
             plt.show()
 
